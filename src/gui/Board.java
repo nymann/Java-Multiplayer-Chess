@@ -1,11 +1,15 @@
 package gui;
 
+import data.Rules;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.*;
+import java.util.List;
 
 /**
  * Created by NEX on 12/05/2015.
@@ -38,7 +42,7 @@ public class Board {
         jFrame.add(jLayeredPane, BorderLayout.CENTER);
 
         background.setBounds(0, 0, 1200, 800);
-        background.setBackground(new Color(0x4063FA));
+        background.setBackground(Color.lightGray);
 
         boardPlaceholder.setLayout(new GridLayout(8, 8));
         boardPlaceholder.setBounds(100, 100, 512, 512);
@@ -57,7 +61,7 @@ public class Board {
                 }
 
                 else {
-                    squares[i][j].setBackground(Color.black);
+                    squares[i][j].setBackground(new Color(0x398999));
                 }
             }
         }
@@ -165,15 +169,99 @@ public class Board {
                 int l = i;
                 int k = j;
                 squares[i][j].addActionListener(e -> {
-                    System.out.print("Clicked row: " + l + ", col: " + k);
                     if (isSquareEmpty(l, k)) {
-                        System.out.println(" which is empty.");
+                        // Do nothing.
                     }
                     else {
-                        System.out.println(" which is occupied by a piece.");
+                        switch (whichPieceIsOccupyingTheSquare(l, k)) {
+                            case "WP":
+                                Rules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k));
+                                break;
+
+                            case "WR":
+                                System.out.println("White rook");
+                                break;
+
+                            case "WN":
+                                System.out.println("White knight");
+                                break;
+
+                            case "WB":
+                                System.out.println("White bishop");
+                                break;
+
+                            case "WQ":
+                                System.out.println("White queen");
+                                break;
+
+                            case "WK":
+                                System.out.println("White king");
+                                break;
+
+                            case "BP":
+                                Rules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k));
+                                break;
+
+                            case "BR":
+                                System.out.println("Black rook");
+                                break;
+
+                            case "BN":
+                                System.out.println("Black knight");
+                                break;
+
+                            case "BB":
+                                System.out.println("Black bishop");
+                                break;
+
+                            case "BQ":
+                                System.out.println("Black queen");
+                                break;
+
+                            case "BK":
+                                System.out.println("Black king");
+                                break;
+                        }
+
+
                     }
                 });
             }
         }
+    }
+
+    public boolean isPiececolorWhite(int row, int col) {
+        String desc = ((ImageIcon) squares[row][col].getIcon()).getDescription();
+
+        if (desc.contains("W")) {
+            System.out.println("The clicked piece is white.");
+            return true;
+        }
+
+        else {
+            System.out.println("The clicked piece is black.");
+            return false;
+        }
+    }
+
+    public String[][] readDescriptionOfEntireBoard() {
+        String[][] boardGridWithDescriptions = new String[8][8];
+
+        for (int i = 0; i < squares.length; i++) {
+            for (int j = 0; j < squares.length; j++) {
+                boardGridWithDescriptions[i][j] = ((ImageIcon) squares[i][j].getIcon()).getDescription();
+            }
+        }
+
+        for (int i = 0; i < boardGridWithDescriptions.length; i++) {
+            for (int j = 0; j < boardGridWithDescriptions.length; j++) {
+                System.out.print(boardGridWithDescriptions[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        
+
+        return boardGridWithDescriptions;
     }
 }

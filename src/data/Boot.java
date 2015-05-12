@@ -24,9 +24,7 @@ public class Boot {
         guiBoard.createTheBoard();
         guiBoard.newGame(boardView);
         guiBoard.makeButtonsInteractive();
-        guiBoard.updateSquare(6, 4, 4, 4, "WP");
-        System.out.println("is the square on row 6, col 4 empty?\n" + guiBoard.isSquareEmpty(6, 4));
-
+        //guiBoard.updateSquare(6, 4, 4, 4, "WP");
     }
 
     public static void main(String[] args) {
