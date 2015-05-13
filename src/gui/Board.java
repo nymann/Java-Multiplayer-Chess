@@ -1,6 +1,7 @@
 package gui;
 
-import data.Rules;
+
+import data.rules.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -160,7 +161,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(Rules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                    highlightValidMoveSquares(PawnRules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 
@@ -206,7 +207,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(Rules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                    highlightValidMoveSquares(KingRules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 
@@ -216,7 +217,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 1){
                                     squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(Rules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                    highlightValidMoveSquares(PawnRules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 
@@ -265,7 +266,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 1){
                                     squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(Rules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                    highlightValidMoveSquares(KingRules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 
