@@ -81,4 +81,7 @@ public class Rules {
         return finalList;
     }
 
+    public static String[] bishopRule(String[][] position, int rowOfBishopInQuestion, int colOfBishopInQuestion, boolean colorOfBishopIsWhite) {
+
+    }
 }

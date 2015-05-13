@@ -170,70 +170,118 @@ public class Board {
                     }
                         switch (whichPieceIsOccupyingTheSquare(l, k)) {
                             case "WP":
-                                System.out.println("WP");
-                                squares[l][k].setBackground(selectedPiece);
-                                highlightValidMoveSquares(Rules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                    highlightValidMoveSquares(Rules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                }
                                 break;
 
                             case "WR":
-                                squares[l][k].setBackground(selectedPiece);
-                                System.out.println("White rook");
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                }
                                 break;
 
                             case "WN":
-                                squares[l][k].setBackground(selectedPiece);
-                                System.out.println("White knight");
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                }
                                 break;
 
                             case "WB":
-                                squares[l][k].setBackground(selectedPiece);
-                                System.out.println("White bishop");
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                }
                                 break;
 
                             case "WQ":
-                                squares[l][k].setBackground(selectedPiece);
-                                System.out.println("White queen");
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                }
                                 break;
 
                             case "WK":
-                                squares[l][k].setBackground(selectedPiece);
-                                System.out.println("White king");
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                }
                                 break;
 
                             case "BP":
-                                squares[l][k].setBackground(selectedPiece);
-                                highlightValidMoveSquares(Rules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                    highlightValidMoveSquares(Rules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                }
                                 break;
 
                             case "BR":
-                                squares[l][k].setBackground(selectedPiece);
-                                System.out.println("Black rook");
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                }
                                 break;
 
                             case "BN":
-                                squares[l][k].setBackground(selectedPiece);
-                                System.out.println("Black knight");
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                }
                                 break;
 
                             case "BB":
-                                squares[l][k].setBackground(selectedPiece);
-                                System.out.println("Black bishop");
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                }
                                 break;
 
                             case "BQ":
-                                squares[l][k].setBackground(selectedPiece);
-                                System.out.println("Black queen");
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                }
                                 break;
 
                             case "BK":
-                                squares[l][k].setBackground(selectedPiece);
-                                System.out.println("Black king");
+                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                    movePiece(l, k);
+                                }
+                                else {
+                                    squares[l][k].setBackground(selectedPiece);
+                                }
                                 break;
 
                             case "ES":
-                                System.out.println(squares[l][k].getBackground());
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    System.out.println("Got in here.");
                                     movePiece(l, k);
                                 }
                                 break;
