@@ -181,6 +181,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
+                                    highlightValidMoveSquares(KnightRules.knightkRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 
@@ -242,6 +243,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 1) {
                                     squares[l][k].setBackground(selectedPiece);
+                                    highlightValidMoveSquares(KnightRules.knightkRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 
@@ -309,14 +311,6 @@ public class Board {
             }
         }
 
-        /*for (int i = 0; i < boardGridWithDescriptions.length; i++) {
-            for (int j = 0; j < boardGridWithDescriptions.length; j++) {
-                System.out.print(boardGridWithDescriptions[i][j] + " ");
-            }
-            System.out.println();
-        }*/
-
-
         return boardGridWithDescriptions;
     }
 
@@ -360,7 +354,6 @@ public class Board {
                 }
             }
         }
-        //System.out.println("PIECENAME: " + piecename);
 
         squares[toRow][toCol].setIcon(new ImageIcon(iconSetter(piecename), piecename));
         setSquareColorsToDefault();

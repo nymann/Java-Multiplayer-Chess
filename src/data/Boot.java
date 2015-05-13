@@ -24,10 +24,10 @@ public class Boot {
             {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
             {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
             {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-            {"ES", "ES", "ES", "BB", "ES", "ES", "ES", "ES"},
+            {"ES", "ES", "ES", "WN", "ES", "ES", "ES", "ES"},
             {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-            {"ES", "ES", "ES", "WB", "ES", "ES", "ES", "ES"},
-            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "WK"},
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
     };
 
     public Boot() {
