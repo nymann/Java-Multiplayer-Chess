@@ -6,9 +6,13 @@ import java.util.List;
 /**
  * By Kristian, you can find me on Github at Github.com/Nymann.
  */
+
+
 public class KingRules {
 
     public static String[] kingRule(String[][] position, int rowOfKingInQuestion, int colOfKingInQuestion, boolean colorOfKingIsWhite) {
+        // CURRENTLY MISSING castling both directions, is in check, and is checkmated.
+
         List<String> listOfValidMoves = new ArrayList<>();
 
         if (colorOfKingIsWhite) {

@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * By NEX, you can find me on Github at Github.com/Nymann.
+ * By Kristian, you can find me on Github at Github.com/Nymann.
  */
 public class Board {
     Color highlightLightSquare = new Color(0xffcc33);
