@@ -122,14 +122,6 @@ public class Rules {
                 if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion].substring(0, 1)).equals("B"))) {
                     listOfValidMoves.add((rowOfKingInQuestion + 1) + ", " + colOfKingInQuestion);
                 }
-
-                if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion - 1].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion - 1].substring(0, 1)).equals("W"))) {
-                    listOfValidMoves.add((rowOfKingInQuestion + 1) + ", " + (colOfKingInQuestion - 1));
-                }
-
-                if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion + 1].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion + 1].substring(0, 1)).equals("W"))) {
-                    listOfValidMoves.add((rowOfKingInQuestion +  1) + ", " + (colOfKingInQuestion + 1));
-                }
             }
 
 
@@ -149,6 +141,14 @@ public class Rules {
 
                 if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion].substring(0, 1)).equals("W"))) {
                     listOfValidMoves.add((rowOfKingInQuestion + 1) + ", " + colOfKingInQuestion);
+                }
+
+                if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion - 1].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion - 1].substring(0, 1)).equals("W"))) {
+                    listOfValidMoves.add((rowOfKingInQuestion + 1) + ", " + (colOfKingInQuestion - 1));
+                }
+
+                if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion + 1].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion + 1].substring(0, 1)).equals("W"))) {
+                    listOfValidMoves.add((rowOfKingInQuestion +  1) + ", " + (colOfKingInQuestion + 1));
                 }
             }
 
