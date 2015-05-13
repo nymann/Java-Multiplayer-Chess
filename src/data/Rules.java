@@ -78,12 +78,6 @@ public class Rules {
             }
         }
 
-        String[] x = listOfValidMoves.toArray(new String[listOfValidMoves.size()]);
-        for (int i = 0; i < x.length; i++) {
-            System.out.println(x[i]);
-        }
-        System.out.println("________________________");
-
         return listOfValidMoves.toArray(new String[listOfValidMoves.size()]);
     }
 
