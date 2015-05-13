@@ -190,6 +190,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
+                                    highlightValidMoveSquares(BishopRules.bishopRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 
@@ -228,6 +229,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 1) {
                                     squares[l][k].setBackground(selectedPiece);
+                                    highlightValidMoveSquares(RookRules.rookRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 
@@ -248,6 +250,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 1) {
                                     squares[l][k].setBackground(selectedPiece);
+                                    highlightValidMoveSquares(BishopRules.bishopRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 

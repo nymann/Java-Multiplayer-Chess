@@ -24,16 +24,16 @@ public class Boot {
             {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
             {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
             {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-            {"BB", "ES", "WR", "ES", "ES", "ES", "BK", "ES"},
-            {"BQ", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+            {"ES", "BB", "BB", "ES", "ES", "ES", "ES", "ES"},
+            {"ES", "WB", "ES", "ES", "ES", "ES", "ES", "WB"},
+            {"ES", "WB", "ES", "ES", "ES", "ES", "ES", "ES"},
             {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
     };
 
     public Boot() {
         gui.Board guiBoard = new Board();
         guiBoard.createTheBoard();
-        guiBoard.newGame(testBoard);
+        guiBoard.newGame(boardView);
         guiBoard.makeButtonsInteractive();
     }
 
