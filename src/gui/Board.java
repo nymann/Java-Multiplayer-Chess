@@ -163,6 +163,7 @@ public class Board {
                                 } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
                                     highlightValidMoveSquares(PawnRules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+
                                 }
                             break;
 
@@ -353,6 +354,7 @@ public class Board {
 
         squares[toRow][toCol].setIcon(new ImageIcon(iconSetter(piecename), piecename));
         setSquareColorsToDefault();
+        checkForPromotion(readDescriptionOfEntireBoard());
 
     }
 
@@ -366,5 +368,17 @@ public class Board {
                 }
             }
         }
+    }
+
+    public void checkForPromotion(String[][] position) {
+        for (int i = 0; i < position.length; i++) {
+            if (position[0][i].equals("WP")) {
+                squares[0][i].setIcon(new ImageIcon(iconSetter("WQ")));
+            }
+            else if (position[7][i].equals("BP")) {
+                squares[7][i].setIcon(new ImageIcon(iconSetter("BQ")));
+            }
+        }
+
     }
 }
