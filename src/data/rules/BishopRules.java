@@ -31,7 +31,9 @@ public class BishopRules {
             }
 
             // possible bishop moves in the right up direction. The MAXIMUM amount of possible moves for this diagonal is decided by the ROW of the Bishop
-            for (int i = 0; i <= rowOfBishopInQuestion; i++) {
+            //System.out.println(rowOfBishopInQuestion);
+            System.out.println("row: " + rowOfBishopInQuestion);
+            for (int i = 1; i <= rowOfBishopInQuestion; i++) {
                 if ((colOfBishopInQuestion + i <= 7) && (rowOfBishopInQuestion - i >= 0)) {
                     if (position[rowOfBishopInQuestion - i][colOfBishopInQuestion + i].equals("ES")) {
                         listOfValidMoves.add((rowOfBishopInQuestion - i) + ", " + (colOfBishopInQuestion + i));
@@ -46,7 +48,7 @@ public class BishopRules {
             }
 
             // possible bishop moves in the right down direction. The MAXIMUM amount of possible moves for this diagonal is decided by 7 - ROW.
-            for (int i = 0; i <= (7 - rowOfBishopInQuestion); i++) {
+            for (int i = 1; i <= (7 - rowOfBishopInQuestion); i++) {
                 if ((colOfBishopInQuestion + i <= 7) && (rowOfBishopInQuestion + i <= 7)) {
                     if (position[rowOfBishopInQuestion + i][colOfBishopInQuestion + i].equals("ES")) {
                         listOfValidMoves.add((rowOfBishopInQuestion + i) + ", " + (colOfBishopInQuestion + i));
@@ -61,7 +63,7 @@ public class BishopRules {
             }
 
             // possible bishop moves in the right left direction. The MAXIMUM amount of possible moves for this diagonal is decided by COL.
-            for (int i = 0; i <= colOfBishopInQuestion; i++) {
+            for (int i = 1; i <= colOfBishopInQuestion; i++) {
                 if ((colOfBishopInQuestion - i >= 0) && (rowOfBishopInQuestion + i <= 7)) {
                     if (position[rowOfBishopInQuestion + i][colOfBishopInQuestion - i].equals("ES")) {
                         listOfValidMoves.add((rowOfBishopInQuestion + i) + ", " + (colOfBishopInQuestion - i));
@@ -93,7 +95,7 @@ public class BishopRules {
             }
 
             // possible bishop moves in the right up direction. The MAXIMUM amount of possible moves for this diagonal is decided by the ROW of the Bishop
-            for (int i = 0; i <= rowOfBishopInQuestion; i++) {
+            for (int i = 1; i <= rowOfBishopInQuestion; i++) {
                 if ((colOfBishopInQuestion + i <= 7) && (rowOfBishopInQuestion - i >= 0)) {
                     if (position[rowOfBishopInQuestion - i][colOfBishopInQuestion + i].equals("ES")) {
                         listOfValidMoves.add((rowOfBishopInQuestion - i) + ", " + (colOfBishopInQuestion + i));
@@ -108,7 +110,7 @@ public class BishopRules {
             }
 
             // possible bishop moves in the right down direction. The MAXIMUM amount of possible moves for this diagonal is decided by 7 - ROW.
-            for (int i = 0; i <= (7 - rowOfBishopInQuestion); i++) {
+            for (int i = 1; i <= (7 - rowOfBishopInQuestion); i++) {
                 if ((colOfBishopInQuestion + i <= 7) && (rowOfBishopInQuestion + i <= 7)) {
                     if (position[rowOfBishopInQuestion + i][colOfBishopInQuestion + i].equals("ES")) {
                         listOfValidMoves.add((rowOfBishopInQuestion + i) + ", " + (colOfBishopInQuestion + i));
@@ -123,7 +125,7 @@ public class BishopRules {
             }
 
             // possible bishop moves in the right left direction. The MAXIMUM amount of possible moves for this diagonal is decided by COL.
-            for (int i = 0; i <= colOfBishopInQuestion; i++) {
+            for (int i = 1; i <= colOfBishopInQuestion; i++) {
                 if ((colOfBishopInQuestion - i >= 0) && (rowOfBishopInQuestion + i <= 7)) {
                     if (position[rowOfBishopInQuestion + i][colOfBishopInQuestion - i].equals("ES")) {
                         listOfValidMoves.add((rowOfBishopInQuestion + i) + ", " + (colOfBishopInQuestion - i));
