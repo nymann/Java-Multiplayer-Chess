@@ -19,10 +19,21 @@ public class Boot {
             {"WR", "WN", "WB", "WQ", "WK", "WB", "WN", "WR"}
     };
 
+    String[][] testBoard = {
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+            {"BB", "ES", "WR", "ES", "ES", "ES", "BK", "ES"},
+            {"BQ", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+    };
+
     public Boot() {
         gui.Board guiBoard = new Board();
         guiBoard.createTheBoard();
-        guiBoard.newGame(boardView);
+        guiBoard.newGame(testBoard);
         guiBoard.makeButtonsInteractive();
     }
 
