@@ -11,7 +11,6 @@ public class PawnRules {
     public static String[] pawnRule(String[][] position, int rowOfPawnInQuestion, int colOfPawnInQuestion, boolean colorOfPawnIsWhite) {
         List<String> listOfValidMoves = new ArrayList<>();
 
-        //System.out.println("COL OF PAWN IN QUESTION: " + colOfPawnInQuestion);
         // Check if pawn is on it's start square
         if (colorOfPawnIsWhite) {
             if (rowOfPawnInQuestion == 6) {

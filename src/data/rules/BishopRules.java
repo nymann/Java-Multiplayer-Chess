@@ -31,8 +31,6 @@ public class BishopRules {
             }
 
             // possible bishop moves in the right up direction. The MAXIMUM amount of possible moves for this diagonal is decided by the ROW of the Bishop
-            //System.out.println(rowOfBishopInQuestion);
-            System.out.println("row: " + rowOfBishopInQuestion);
             for (int i = 1; i <= rowOfBishopInQuestion; i++) {
                 if ((colOfBishopInQuestion + i <= 7) && (rowOfBishopInQuestion - i >= 0)) {
                     if (position[rowOfBishopInQuestion - i][colOfBishopInQuestion + i].equals("ES")) {

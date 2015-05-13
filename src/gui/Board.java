@@ -2,6 +2,7 @@ package gui;
 
 
 import data.rules.*;
+import data.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -290,8 +291,6 @@ public class Board {
                         default:
                             System.out.println("Error");
                     }
-
-
                 });
             }
         }
@@ -315,11 +314,6 @@ public class Board {
     }
 
     public void highlightValidMoveSquares(String[] validMoveList) {
-
-        for (String aValidMoveList : validMoveList) {
-            System.out.println(aValidMoveList);
-        }
-        System.out.println("---qp---");
 
         for (String aValidMoveList : validMoveList) {
             int row = Integer.valueOf(aValidMoveList.substring(0, 1));
@@ -350,6 +344,7 @@ public class Board {
                 if (squares[i][j].getBackground().equals(selectedPiece)) {
                     piecename = whichPieceIsOccupyingTheSquare(i, j);
                     squares[i][j].setIcon(new ImageIcon(iconSetter("ES"), "ES"));
+
                     break LookingForSelectedPiece;
                 }
             }
