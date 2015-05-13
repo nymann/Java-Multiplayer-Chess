@@ -1,7 +1,6 @@
 package data.rules;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,8 +40,6 @@ public class KingRules {
 
                                 System.out.println("Kingside castling is an option!");
 
-                            } catch (FileNotFoundException e) {
-                                e.printStackTrace();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -67,8 +64,6 @@ public class KingRules {
 
                                     System.out.println("Queenside castling is an option!");
 
-                                } catch (FileNotFoundException e) {
-                                    e.printStackTrace();
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }

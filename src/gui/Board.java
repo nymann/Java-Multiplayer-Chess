@@ -15,10 +15,10 @@ import java.io.IOException;
  * By Kristian, you can find me on Github at Github.com/Nymann.
  */
 public class Board {
-    Color highlightLightSquare = new Color(0xffcc33);
-    Color highlightDarkSquare = new Color(0xcc9933);
-    Color darkSquare = new Color(0x398999);
-    Color selectedPiece = new Color(0xcccccc);
+    final Color highlightLightSquare = new Color(0xffcc33);
+    final Color highlightDarkSquare = new Color(0xcc9933);
+    final Color darkSquare = new Color(0x398999);
+    final Color selectedPiece = new Color(0xcccccc);
     int turnDecision = 0;
 
 
@@ -182,7 +182,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(KnightRules.knightkRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                    highlightValidMoveSquares(KnightRules.knightRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 
@@ -244,7 +244,7 @@ public class Board {
                                     turnDecision++;
                                 } else if ((turnDecision % 2) == 1) {
                                     squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(KnightRules.knightkRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                    highlightValidMoveSquares(KnightRules.knightRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             break;
 

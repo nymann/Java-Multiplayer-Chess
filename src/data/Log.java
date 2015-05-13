@@ -3,8 +3,6 @@ package data;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 /**
  * By Kristian, you can find me on Github at Github.com/Nymann.
@@ -16,7 +14,7 @@ public class Log {
         File file = new File("res/log.txt");
 
         if (file.delete()) {
-
+            System.out.println("file deleted.");
         } else {
             System.out.println("didn't delete!");
         }

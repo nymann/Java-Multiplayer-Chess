@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class KnightRules {
 
-    public static String[] knightkRule(String[][] position, int rowOfKnightInQuestion, int colOfKnightInQuestion, boolean colorOfKnightIsWhite) {
+    public static String[] knightRule(String[][] position, int rowOfKnightInQuestion, int colOfKnightInQuestion, boolean colorOfKnightIsWhite) {
 
         List<String> listOfValidMoves = new ArrayList<>();
 
