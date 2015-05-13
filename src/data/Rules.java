@@ -81,11 +81,46 @@ public class Rules {
         return listOfValidMoves.toArray(new String[listOfValidMoves.size()]);
     }
 
-// --Commented out by Inspection START (13/05/2015 03:04):
-//    public static String[] bishopRule(String[][] position, int rowOfBishopInQuestion, int colOfBishopInQuestion, boolean colorOfBishopIsWhite) {
-//
-//        return null;
-//    }
-// --Commented out by Inspection STOP (13/05/2015 03:04)
+    public static String[] kingRule(String[][] position, int rowOfKingInQuestion, int colOfKingInQuestion, boolean colorOfKingIsWhite) {
+        List<String> listOfValidMoves = new ArrayList<>();
 
+        if (colorOfKingIsWhite) {
+            // King is white.
+            if ((rowOfKingInQuestion == 7) && ((colOfKingInQuestion != 0) && colOfKingInQuestion != 7)) {
+                // This will be the most used rule at least until endgame, that's why we are checking for it first.
+                if ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].substring(0, 1)).equals("B"))) {
+                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion -1));
+                }
+
+                if ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].substring(0, 1)).equals("B"))) {
+                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion + 1));
+                }
+
+                if ((position[rowOfKingInQuestion - 1][colOfKingInQuestion].equals("ES")) || ((position[rowOfKingInQuestion - 1][colOfKingInQuestion].substring(0, 1)).equals("B"))) {
+                    listOfValidMoves.add((rowOfKingInQuestion - 1) + ", " + colOfKingInQuestion);
+                }
+            }
+
+        }
+
+        else {
+            // Kings is black.
+            if ((rowOfKingInQuestion == 0) && ((colOfKingInQuestion != 0) && colOfKingInQuestion != 7)) {
+                // This will be the most used rule at least until endgame, that's why we are checking for it first.
+                if ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].substring(0, 1)).equals("W"))) {
+                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion -1));
+                }
+
+                if ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].substring(0, 1)).equals("W"))) {
+                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion + 1));
+                }
+
+                if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion].substring(0, 1)).equals("W"))) {
+                    listOfValidMoves.add((rowOfKingInQuestion + 1) + ", " + colOfKingInQuestion);
+                }
+            }
+        }
+
+        return listOfValidMoves.toArray(new String[listOfValidMoves.size()]);
+    }
 }

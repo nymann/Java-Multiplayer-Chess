@@ -217,6 +217,7 @@ public class Board {
                                     turnDecision++;
                                 } else {
                                     squares[l][k].setBackground(selectedPiece);
+                                    highlightValidMoveSquares(Rules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             }
                             break;
@@ -284,6 +285,7 @@ public class Board {
                                     turnDecision++;
                                 } else {
                                     squares[l][k].setBackground(selectedPiece);
+                                    highlightValidMoveSquares(Rules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
                             }
                             break;
