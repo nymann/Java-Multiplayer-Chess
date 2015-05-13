@@ -33,7 +33,7 @@ public class Boot {
     public Boot() {
         gui.Board guiBoard = new Board();
         guiBoard.createTheBoard();
-        guiBoard.newGame(testBoard);
+        guiBoard.newGame(boardView);
         guiBoard.makeButtonsInteractive();
     }
 
