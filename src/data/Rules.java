@@ -37,13 +37,13 @@ public class Rules {
 
             // We are now gonna check if the piece can capture anything, but first we need to check if the piece is on the edge of the board so we don't get any array out of bounds exceptions.
             if(colOfPawnInQuestion != 0) {
-                if (!position[rowOfPawnInQuestion - 1][colOfPawnInQuestion - 1].equals("ES")) {
+                if ((!position[rowOfPawnInQuestion - 1][colOfPawnInQuestion - 1].equals("ES")) && (position[rowOfPawnInQuestion + 1][colOfPawnInQuestion + 1].substring(0, 1).equals("B"))) {
                     listOfValidMoves.add((rowOfPawnInQuestion - 1) + ", " + (colOfPawnInQuestion - 1));
                 }
             }
 
             if (colOfPawnInQuestion != 7) {
-                if (!position[rowOfPawnInQuestion - 1][colOfPawnInQuestion + 1].equals("ES")) {
+                if ((!position[rowOfPawnInQuestion - 1][colOfPawnInQuestion + 1].equals("ES")) && (position[rowOfPawnInQuestion + 1][colOfPawnInQuestion + 1].substring(0, 1).equals("B"))) {
                     listOfValidMoves.add((rowOfPawnInQuestion - 1) + ", " + (colOfPawnInQuestion + 1));
                 }
             }
@@ -65,12 +65,12 @@ public class Rules {
 
             // We are now gonna check if the piece can capture anything, but first we need to check if the piece is on the edge of the board so we don't get any array out of bounds exceptions.
             if (colOfPawnInQuestion != 7) {
-                if (!position[rowOfPawnInQuestion + 1][colOfPawnInQuestion + 1].equals("ES")) {
+                if ((!position[rowOfPawnInQuestion + 1][colOfPawnInQuestion + 1].equals("ES")) && (position[rowOfPawnInQuestion + 1][colOfPawnInQuestion + 1].substring(0, 1).equals("W"))) {
                     listOfValidMoves.add((rowOfPawnInQuestion + 1) + ", " + (colOfPawnInQuestion + 1));
                 }
             }
             if (colOfPawnInQuestion != 0) {
-                if (!position[rowOfPawnInQuestion + 1][colOfPawnInQuestion - 1].equals("ES")) {
+                if ((!position[rowOfPawnInQuestion + 1][colOfPawnInQuestion - 1].equals("ES")) && (position[rowOfPawnInQuestion + 1][colOfPawnInQuestion + 1].substring(0, 1).equals("W"))) {
                     listOfValidMoves.add((rowOfPawnInQuestion + 1) + ", " + (colOfPawnInQuestion - 1));
                 }
             }
