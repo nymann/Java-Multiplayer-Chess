@@ -31,6 +31,7 @@ public class Boot {
     };
 
     public Boot() {
+        Log.deletePreviousLog();
         gui.Board guiBoard = new Board();
         guiBoard.createTheBoard();
         guiBoard.newGame(boardView);

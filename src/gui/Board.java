@@ -343,6 +343,7 @@ public class Board {
             for (int j = 0; j < squares.length; j++) {
                 if (squares[i][j].getBackground().equals(selectedPiece)) {
                     piecename = whichPieceIsOccupyingTheSquare(i, j);
+                    Log.addToLogFile(i, j, toRow, toCol);
                     squares[i][j].setIcon(new ImageIcon(iconSetter("ES"), "ES"));
 
                     break LookingForSelectedPiece;
