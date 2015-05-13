@@ -8,11 +8,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
-import java.util.List;
 
 /**
- * Created by NEX on 12/05/2015.
+ * By NEX, you can find me on Github at Github.com/Nymann.
  */
 public class Board {
     Color highlightLightSquare = new Color(0xffcc33);
@@ -73,8 +71,7 @@ public class Board {
 
     public BufferedImage iconSetter(String pieceName) {
         try {
-            BufferedImage bufferedImage = ImageIO.read(new File("res/img/" + pieceName + ".png"));
-            return bufferedImage;
+            return ImageIO.read(new File("res/img/" + pieceName + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -82,20 +79,8 @@ public class Board {
         return null;
     }
 
-    public boolean isSquareEmpty(int row, int col) {
-        String desc = ((ImageIcon) squares[row][col].getIcon()).getDescription();
-        if(desc.equals("ES")) {
-            return true;
-        }
-
-        else {
-            return false;
-        }
-    }
-
     public String whichPieceIsOccupyingTheSquare(int row, int col) {
-        String desc = ((ImageIcon) squares[row][col].getIcon()).getDescription();
-        return desc;
+        return ((ImageIcon) squares[row][col].getIcon()).getDescription();
     }
 
     public void newGame(String[][] board) {
@@ -300,15 +285,9 @@ public class Board {
     public boolean isPiececolorWhite(int row, int col) {
         String desc = ((ImageIcon) squares[row][col].getIcon()).getDescription();
 
-        if (desc.contains("W")) {
-            //System.out.println("The clicked piece is white.");
-            return true;
-        }
-
-        else {
-            //System.out.println("The clicked piece is black.");
-            return false;
-        }
+        //System.out.println("The clicked piece is white.");
+//System.out.println("The clicked piece is black.");
+        return desc.contains("W");
     }
 
     public String[][] readDescriptionOfEntireBoard() {
@@ -334,14 +313,14 @@ public class Board {
 
     public void highlightValidMoveSquares(String[] validMoveList) {
 
-        for (int i = 0; i < validMoveList.length; i++) {
-            System.out.println(validMoveList[i]);
+        for (String aValidMoveList : validMoveList) {
+            System.out.println(aValidMoveList);
         }
         System.out.println("---qp---");
 
-        for (int i = 0; i < validMoveList.length; i++) {
-            int row = Integer.valueOf(validMoveList[i].substring(0, 1));
-            int col = Integer.valueOf(validMoveList[i].substring(3));
+        for (String aValidMoveList : validMoveList) {
+            int row = Integer.valueOf(aValidMoveList.substring(0, 1));
+            int col = Integer.valueOf(aValidMoveList.substring(3));
 
             if ((squares[row][col].getBackground().equals(Color.white)) || (squares[row][col].getBackground().equals(darkSquare))) {
                 if (squares[row][col].getBackground().equals(Color.white)) {
@@ -349,13 +328,10 @@ public class Board {
                 } else {
                     squares[row][col].setBackground(highlightDarkSquare);
                 }
-            }
-
-            else {
+            } else {
                 if (squares[row][col].getBackground().equals(highlightDarkSquare)) {
                     squares[row][col].setBackground(darkSquare);
-                }
-                else {
+                } else {
                     squares[row][col].setBackground(Color.white);
                 }
             }
@@ -371,13 +347,13 @@ public class Board {
                 if (squares[i][j].getBackground().equals(selectedPiece)) {
                     piecename = whichPieceIsOccupyingTheSquare(i, j);
                     squares[i][j].setIcon(new ImageIcon(iconSetter("ES"), "ES"));
+                    break LookingForSelectedPiece;
                 }
             }
         }
         //System.out.println("PIECENAME: " + piecename);
 
         squares[toRow][toCol].setIcon(new ImageIcon(iconSetter(piecename), piecename));
-        piecename = "ES";
         setSquareColorsToDefault();
 
     }

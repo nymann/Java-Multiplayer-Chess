@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Kristian on 12/05/2015.
+ * By Kristian, you can find me on Github at Github.com/Nymann.
  */
 public class Rules {
 
-    public Rules() {
-
-    }
+// --Commented out by Inspection START (13/05/2015 03:04):
+//    public Rules() {
+//
+//    }
+// --Commented out by Inspection STOP (13/05/2015 03:04)
 
     public static String[] pawnRule(String[][] position, int rowOfPawnInQuestion, int colOfPawnInQuestion, boolean colorOfPawnIsWhite) {
         List<String> listOfValidMoves = new ArrayList<>();
@@ -76,14 +78,14 @@ public class Rules {
             }
         }
 
-        String[] finalList = listOfValidMoves.toArray(new String[listOfValidMoves.size()]);
-        
-        return finalList;
+        return listOfValidMoves.toArray(new String[listOfValidMoves.size()]);
     }
 
-    public static String[] bishopRule(String[][] position, int rowOfBishopInQuestion, int colOfBishopInQuestion, boolean colorOfBishopIsWhite) {
-
-        return null;
-    }
+// --Commented out by Inspection START (13/05/2015 03:04):
+//    public static String[] bishopRule(String[][] position, int rowOfBishopInQuestion, int colOfBishopInQuestion, boolean colorOfBishopIsWhite) {
+//
+//        return null;
+//    }
+// --Commented out by Inspection STOP (13/05/2015 03:04)
 
 }

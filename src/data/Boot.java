@@ -3,7 +3,7 @@ package data;
 import gui.Board;
 
 /**
- * Created by NEX on 12/05/2015.
+ * By NEX, you can find me on Github at Github.com/Nymann.
  */
 
 public class Boot {
