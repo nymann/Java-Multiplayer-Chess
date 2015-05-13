@@ -165,6 +165,9 @@ public class Board {
                 int l = i;
                 int k = j;
                 squares[l][k].addActionListener(e -> {
+                    if ((squares[l][k].getBackground().equals(Color.white)) || (squares[l][k].getBackground().equals(darkSquare))) {
+                        setSquareColorsToDefault();
+                    }
                         switch (whichPieceIsOccupyingTheSquare(l, k)) {
                             case "WP":
                                 System.out.println("WP");
