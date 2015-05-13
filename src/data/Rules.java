@@ -38,7 +38,7 @@ public class Rules {
             }
 
             // We are now gonna check if the piece can capture anything, but first we need to check if the piece is on the edge of the board so we don't get any array out of bounds exceptions.
-            if(colOfPawnInQuestion != 0) {
+            if (colOfPawnInQuestion != 0) {
                 if (position[rowOfPawnInQuestion - 1][colOfPawnInQuestion - 1].substring(0, 1).equals("B")) {
                     listOfValidMoves.add((rowOfPawnInQuestion - 1) + ", " + (colOfPawnInQuestion - 1));
                 }
@@ -89,7 +89,7 @@ public class Rules {
             if ((rowOfKingInQuestion == 7) && ((colOfKingInQuestion != 0) && colOfKingInQuestion != 7)) {
                 // This will be the most used rule at least until endgame, that's why we are checking for it first.
                 if ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].substring(0, 1)).equals("B"))) {
-                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion -1));
+                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion - 1));
                 }
 
                 if ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].substring(0, 1)).equals("B"))) {
@@ -99,16 +99,48 @@ public class Rules {
                 if ((position[rowOfKingInQuestion - 1][colOfKingInQuestion].equals("ES")) || ((position[rowOfKingInQuestion - 1][colOfKingInQuestion].substring(0, 1)).equals("B"))) {
                     listOfValidMoves.add((rowOfKingInQuestion - 1) + ", " + colOfKingInQuestion);
                 }
+
+                if ((position[rowOfKingInQuestion -1][colOfKingInQuestion - 1].equals("ES")) || ((position[rowOfKingInQuestion -1][colOfKingInQuestion - 1].substring(0, 1)).equals("B"))) {
+                    listOfValidMoves.add((rowOfKingInQuestion - 1) + ", " + (colOfKingInQuestion - 1));
+                }
+
+                if ((position[rowOfKingInQuestion -1][colOfKingInQuestion + 1].equals("ES")) || ((position[rowOfKingInQuestion -1][colOfKingInQuestion + 1].substring(0, 1)).equals("B"))) {
+                    listOfValidMoves.add((rowOfKingInQuestion - 1) + ", " + (colOfKingInQuestion + 1));
+                }
             }
 
-        }
+            else if ((rowOfKingInQuestion == 0) && ((colOfKingInQuestion != 0) && colOfKingInQuestion != 7)) {
+                // This will be the most used rule at least until endgame, that's why we are checking for it first.
+                if ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].substring(0, 1)).equals("B"))) {
+                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion - 1));
+                }
 
-        else {
+                if ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].substring(0, 1)).equals("B"))) {
+                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion + 1));
+                }
+
+                if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion].substring(0, 1)).equals("B"))) {
+                    listOfValidMoves.add((rowOfKingInQuestion + 1) + ", " + colOfKingInQuestion);
+                }
+
+                if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion - 1].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion - 1].substring(0, 1)).equals("W"))) {
+                    listOfValidMoves.add((rowOfKingInQuestion + 1) + ", " + (colOfKingInQuestion - 1));
+                }
+
+                if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion + 1].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion + 1].substring(0, 1)).equals("W"))) {
+                    listOfValidMoves.add((rowOfKingInQuestion +  1) + ", " + (colOfKingInQuestion + 1));
+                }
+            }
+
+
+
+
+        } else {
             // Kings is black.
             if ((rowOfKingInQuestion == 0) && ((colOfKingInQuestion != 0) && colOfKingInQuestion != 7)) {
                 // This will be the most used rule at least until endgame, that's why we are checking for it first.
                 if ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].substring(0, 1)).equals("W"))) {
-                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion -1));
+                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion - 1));
                 }
 
                 if ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].substring(0, 1)).equals("W"))) {
@@ -117,6 +149,21 @@ public class Rules {
 
                 if ((position[rowOfKingInQuestion + 1][colOfKingInQuestion].equals("ES")) || ((position[rowOfKingInQuestion + 1][colOfKingInQuestion].substring(0, 1)).equals("W"))) {
                     listOfValidMoves.add((rowOfKingInQuestion + 1) + ", " + colOfKingInQuestion);
+                }
+            }
+
+            else if ((rowOfKingInQuestion == 7) && ((colOfKingInQuestion != 0) && colOfKingInQuestion != 7)) {
+                // This will be the most used rule at least until endgame, that's why we are checking for it first.
+                if ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].substring(0, 1)).equals("W"))) {
+                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion - 1));
+                }
+
+                if ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].equals("ES")) || ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].substring(0, 1)).equals("W"))) {
+                    listOfValidMoves.add(rowOfKingInQuestion + ", " + (colOfKingInQuestion + 1));
+                }
+
+                if ((position[rowOfKingInQuestion - 1][colOfKingInQuestion].equals("ES")) || ((position[rowOfKingInQuestion - 1][colOfKingInQuestion].substring(0, 1)).equals("W"))) {
+                    listOfValidMoves.add((rowOfKingInQuestion - 1) + ", " + colOfKingInQuestion);
                 }
             }
         }
