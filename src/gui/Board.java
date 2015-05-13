@@ -155,139 +155,118 @@ public class Board {
                     }
                     switch (whichPieceIsOccupyingTheSquare(l, k)) {
                         case "WP":
-                            if ((turnDecision % 2) == 0) {
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
                                     highlightValidMoveSquares(Rules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
-                            }
                             break;
 
                         case "WR":
-                            if ((turnDecision % 2) == 0) {
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
                                 }
-                            }
                             break;
 
                         case "WN":
-                            if ((turnDecision % 2) == 0) {
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
                                 }
-                            }
                             break;
 
                         case "WB":
-                            if ((turnDecision % 2) == 0) {
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
                                 }
-                            }
                             break;
 
                         case "WQ":
-                            if ((turnDecision % 2) == 0) {
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
                                 }
-                            }
                             break;
 
                         case "WK":
-                            if ((turnDecision % 2) == 0) {
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 0) {
                                     squares[l][k].setBackground(selectedPiece);
                                     highlightValidMoveSquares(Rules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
-                            }
                             break;
 
                         case "BP":
-                            if ((turnDecision % 2) == 1) {
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 1){
                                     squares[l][k].setBackground(selectedPiece);
                                     highlightValidMoveSquares(Rules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
-                            }
                             break;
 
                         case "BR":
-                            if ((turnDecision % 2) == 1) {
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 1) {
                                     squares[l][k].setBackground(selectedPiece);
                                 }
-                            }
                             break;
 
                         case "BN":
-                            if ((turnDecision % 2) == 1) {
+
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 1) {
                                     squares[l][k].setBackground(selectedPiece);
                                 }
-                            }
                             break;
 
                         case "BB":
-                            if ((turnDecision % 2) == 1) {
+
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 1) {
                                     squares[l][k].setBackground(selectedPiece);
                                 }
-                            }
                             break;
 
                         case "BQ":
-                            if ((turnDecision % 2) == 1) {
+
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 1) {
                                     squares[l][k].setBackground(selectedPiece);
                                 }
-                            }
                             break;
 
                         case "BK":
-                            if ((turnDecision % 2) == 1) {
                                 if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
                                     movePiece(l, k);
                                     turnDecision++;
-                                } else {
+                                } else if ((turnDecision % 2) == 1){
                                     squares[l][k].setBackground(selectedPiece);
                                     highlightValidMoveSquares(Rules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
                                 }
-                            }
                             break;
 
                         case "ES":
