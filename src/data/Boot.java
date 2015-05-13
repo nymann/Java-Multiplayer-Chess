@@ -24,7 +24,6 @@ public class Boot {
         guiBoard.createTheBoard();
         guiBoard.newGame(boardView);
         guiBoard.makeButtonsInteractive();
-        //guiBoard.updateSquare(6, 4, 4, 4, "WP");
     }
 
     public static void main(String[] args) {
