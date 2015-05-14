@@ -1,5 +1,7 @@
 package data.rules;
 
+import gui.Board;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ public class KingRules {
             // Checking for the ability to castle kingside.
             if ((rowOfKingInQuestion == 7) && (colOfKingInQuestion == 4)) {
                 // The king is on it's start square, now checking if the two squares to the right of the king is empty and the third is a rook.
+
                 if ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].equals("ES")) && (position[rowOfKingInQuestion][colOfKingInQuestion + 2].equals("ES")) && (position[rowOfKingInQuestion][colOfKingInQuestion + 3].equals("WR"))) {
                     try {
                         // Some of the following is borrowed by Ramin as seen in: http://stackoverflow.com/questions/13405822/using-bufferedreader-readline-in-a-while-loop-properly
@@ -41,7 +44,7 @@ public class KingRules {
                     }
 
                     if (kingsideCastle) {
-                        System.out.println("King side castling possible.");
+                        listOfValidMoves.add("WKC");
                     }
                 }
 
@@ -63,7 +66,8 @@ public class KingRules {
                     }
 
                     if (queensideCastle) {
-                        System.out.println("Queen side castling possible.");
+                        //System.out.println("Queen side castling possible.");
+                        listOfValidMoves.add("WQC");
                     }
                 }
 
@@ -280,7 +284,7 @@ public class KingRules {
                     }
 
                     if (kingsideCastle) {
-                        System.out.println("King side castling possible.");
+                        listOfValidMoves.add("BKC");
                     }
                 }
 
@@ -302,7 +306,7 @@ public class KingRules {
                     }
 
                     if (queensideCastle) {
-                        System.out.println("Queen side castling possible.");
+                        listOfValidMoves.add("BQC");
                     }
                 }
             }

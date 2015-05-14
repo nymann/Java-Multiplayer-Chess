@@ -15,6 +15,8 @@ public class Board {
     private final Color highlightDarkSquare = new Color(0xcc9933);
     private final Color darkSquare = new Color(0x398999);
     private final Color selectedPiece = new Color(0xcccccc);
+    private final Color castleColorDS = new Color(0xcc9932);
+    private final Color castleColorLS = new Color(0xfbc72c);
     private int turnDecision = 0;
 
 
@@ -273,6 +275,10 @@ public class Board {
                                 movePiece(l, k);
                                 turnDecision++;
                             }
+                            else if ((squares[l][k].getBackground().equals(castleColorDS)) || (squares[l][k].getBackground().equals(castleColorLS))) {
+                                letsCastle(l, k);
+                                turnDecision++;
+                            }
                             break;
 
                         default:
@@ -302,21 +308,50 @@ public class Board {
 
     private void highlightValidMoveSquares(String[] validMoveList) {
 
-        for (String aValidMoveList : validMoveList) {
-            int row = Integer.valueOf(aValidMoveList.substring(0, 1));
-            int col = Integer.valueOf(aValidMoveList.substring(3));
+        for (int i = 0; i < validMoveList.length; i ++) {
+            if ((validMoveList[i].substring(0, 1).equals("W") || validMoveList[i].substring(0, 1).equals("B"))) {
+                if (validMoveList[i].substring(0, 1).equals("W")) {
+                    if (validMoveList[i].equals("WKC")) {
+                        //System.out.println("White King side castle.");
+                        squares[7][6].setBackground(castleColorDS);
+                    }
 
-            if ((squares[row][col].getBackground().equals(Color.white)) || (squares[row][col].getBackground().equals(darkSquare))) {
-                if (squares[row][col].getBackground().equals(Color.white)) {
-                    squares[row][col].setBackground(highlightLightSquare);
-                } else {
-                    squares[row][col].setBackground(highlightDarkSquare);
+                    if (validMoveList[i].equals("WQC")) {
+                        //System.out.println("White Queen side castle.");
+                        squares[7][2].setBackground(castleColorDS);
+                    }
                 }
-            } else {
-                if (squares[row][col].getBackground().equals(highlightDarkSquare)) {
-                    squares[row][col].setBackground(darkSquare);
+
+                else {
+                    if (validMoveList[i].equals("BKC")) {
+                        //System.out.println("White King side castle.");
+                        squares[0][6].setBackground(castleColorLS);
+                    }
+
+                    if (validMoveList[i].equals("BQC")) {
+                        //System.out.println("White Queen side castle.");
+                        squares[0][2].setBackground(castleColorLS);
+                    }
+                }
+
+
+            }
+            else {
+                int row = Integer.valueOf(validMoveList[i].substring(0, 1));
+                int col = Integer.valueOf(validMoveList[i].substring(3));
+
+                if ((squares[row][col].getBackground().equals(Color.white)) || (squares[row][col].getBackground().equals(darkSquare))) {
+                    if (squares[row][col].getBackground().equals(Color.white)) {
+                        squares[row][col].setBackground(highlightLightSquare);
+                    } else {
+                        squares[row][col].setBackground(highlightDarkSquare);
+                    }
                 } else {
-                    squares[row][col].setBackground(Color.white);
+                    if (squares[row][col].getBackground().equals(highlightDarkSquare)) {
+                        squares[row][col].setBackground(darkSquare);
+                    } else {
+                        squares[row][col].setBackground(Color.white);
+                    }
                 }
             }
         }
@@ -365,5 +400,47 @@ public class Board {
             }
         }
 
+    }
+
+    private void letsCastle(int row, int col) {
+        if (row == 0) {
+            // Black castle
+            if (col == 2) {
+                // Queen side
+                squares[0][0].setIcon(iconSetter("ES"));
+                squares[0][3].setIcon(iconSetter("BR"));
+                squares[0][2].setIcon(iconSetter("BK"));
+                squares[0][4].setIcon(iconSetter("ES"));
+            }
+
+            else {
+                // King side
+                squares[0][7].setIcon(iconSetter("ES"));
+                squares[0][4].setIcon(iconSetter("ES"));
+                squares[0][5].setIcon(iconSetter("BR"));
+                squares[0][6].setIcon(iconSetter("BK"));
+            }
+        }
+
+        else {
+            // White castle
+            if (col == 2) {
+                // Queen side
+                squares[7][0].setIcon(iconSetter("ES"));
+                squares[7][3].setIcon(iconSetter("WR"));
+                squares[7][2].setIcon(iconSetter("WK"));
+                squares[7][4].setIcon(iconSetter("ES"));
+            }
+
+            else {
+                // King side
+                squares[7][7].setIcon(iconSetter("ES"));
+                squares[7][4].setIcon(iconSetter("ES"));
+                squares[7][5].setIcon(iconSetter("WR"));
+                squares[7][6].setIcon(iconSetter("WK"));
+            }
+        }
+
+        setSquareColorsToDefault();
     }
 }
