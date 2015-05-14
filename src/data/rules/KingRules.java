@@ -36,8 +36,6 @@ public class KingRules {
                             }
                         }
                         br.close();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
