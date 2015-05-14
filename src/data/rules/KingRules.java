@@ -28,7 +28,7 @@ public class KingRules {
                 for (int i = 1; i <= 2; i++) {
                     if (position[rowOfKingInQuestion][colOfKingInQuestion + i].equals("ES")) {
                         if (position[rowOfKingInQuestion][colOfKingInQuestion + i + 1].equals("WR")) {
-                            try (BufferedReader bufferedReader = new BufferedReader(new FileReader("res/log.txt"))) {
+                            try (BufferedReader bufferedReader = new BufferedReader(new FileReader("log.txt"))) {
                                 String line;
 
                                 while ((line = bufferedReader.readLine()) != null) {
@@ -52,7 +52,7 @@ public class KingRules {
                     if (position[rowOfKingInQuestion][colOfKingInQuestion - i].equals("ES")) {
                         if (position[rowOfKingInQuestion][colOfKingInQuestion - i - 1].equals("ES")) {
                             if (position[rowOfKingInQuestion][colOfKingInQuestion - i - 2].equals("WR")) {
-                                try (BufferedReader bufferedReader = new BufferedReader(new FileReader("res/log.txt"))) {
+                                try (BufferedReader bufferedReader = new BufferedReader(new FileReader("log.txt"))) {
                                     String line;
 
                                     while ((line = bufferedReader.readLine()) != null) {
