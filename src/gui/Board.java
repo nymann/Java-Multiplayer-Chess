@@ -4,35 +4,27 @@ package gui;
 import data.rules.*;
 import data.*;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * By Kristian, you can find me on Github at Github.com/Nymann.
  */
 public class Board {
-    final Color highlightLightSquare = new Color(0xffcc33);
-    final Color highlightDarkSquare = new Color(0xcc9933);
-    final Color darkSquare = new Color(0x398999);
-    final Color selectedPiece = new Color(0xcccccc);
-    int turnDecision = 0;
+    private final Color highlightLightSquare = new Color(0xffcc33);
+    private final Color highlightDarkSquare = new Color(0xcc9933);
+    private final Color darkSquare = new Color(0x398999);
+    private final Color selectedPiece = new Color(0xcccccc);
+    private int turnDecision = 0;
 
 
-    JFrame jFrame;
-    JLayeredPane jLayeredPane;
-    JPanel background;
-    JPanel boardPlaceholder;
-    JButton[][] squares;
+    private JButton[][] squares;
 
     public void createTheBoard() {
-        jFrame = new JFrame();
-        jLayeredPane = new JLayeredPane();
-        background = new JPanel();
-        boardPlaceholder = new JPanel();
+        JFrame jFrame = new JFrame();
+        JLayeredPane jLayeredPane = new JLayeredPane();
+        JPanel background = new JPanel();
+        JPanel boardPlaceholder = new JPanel();
         squares = new JButton[8][8];
 
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,11 +63,11 @@ public class Board {
         jFrame.setVisible(true);
     }
 
-    public ImageIcon iconSetter(String pieceName) {
+    private ImageIcon iconSetter(String pieceName) {
         return new ImageIcon(getClass().getResource("res/img/" + pieceName + ".png"), pieceName);
     }
 
-    public String whichPieceIsOccupyingTheSquare(int row, int col) {
+    private String whichPieceIsOccupyingTheSquare(int row, int col) {
         return ((ImageIcon) squares[row][col].getIcon()).getDescription();
     }
 
@@ -291,12 +283,12 @@ public class Board {
         }
     }
 
-    public boolean isPiececolorWhite(int row, int col) {
+    private boolean isPiececolorWhite(int row, int col) {
         String desc = ((ImageIcon) squares[row][col].getIcon()).getDescription();
         return desc.contains("W");
     }
 
-    public String[][] readDescriptionOfEntireBoard() {
+    private String[][] readDescriptionOfEntireBoard() {
         String[][] boardGridWithDescriptions = new String[8][8];
 
         for (int i = 0; i < squares.length; i++) {
@@ -308,7 +300,7 @@ public class Board {
         return boardGridWithDescriptions;
     }
 
-    public void highlightValidMoveSquares(String[] validMoveList) {
+    private void highlightValidMoveSquares(String[] validMoveList) {
 
         for (String aValidMoveList : validMoveList) {
             int row = Integer.valueOf(aValidMoveList.substring(0, 1));
@@ -330,7 +322,7 @@ public class Board {
         }
     }
 
-    public void movePiece(int toRow, int toCol) {
+    private void movePiece(int toRow, int toCol) {
         String piecename = "ES";
 
         LookingForSelectedPiece:
@@ -352,7 +344,7 @@ public class Board {
 
     }
 
-    public void setSquareColorsToDefault() {
+    private void setSquareColorsToDefault() {
         for (int i = 0; i < squares.length; i++) {
             for (int j = 0; j < squares.length; j++) {
                 if (((i % 2 == 0) && (j % 2 == 0)) || ((i % 2 == 1) && (j % 2 == 1))) {
@@ -364,7 +356,7 @@ public class Board {
         }
     }
 
-    public void checkForPromotion(String[][] position) {
+    private void checkForPromotion(String[][] position) {
         for (int i = 0; i < position.length; i++) {
             if (position[0][i].equals("WP")) {
                 squares[0][i].setIcon(iconSetter("WQ"));
