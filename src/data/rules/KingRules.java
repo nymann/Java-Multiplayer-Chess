@@ -305,7 +305,6 @@ public class KingRules {
                         System.out.println("Queen side castling possible.");
                     }
                 }
-
             }
 
             // Checking the row 0, which is the black kings start row.
