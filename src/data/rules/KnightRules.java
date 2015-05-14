@@ -65,7 +65,7 @@ public class KnightRules {
                 if (position[rowOfKnightInQuestion - 2][colOfKnightInQuestion - 1].equals("ES")) {
                     listOfValidMoves.add((rowOfKnightInQuestion - 2) + ", " + (colOfKnightInQuestion - 1));
                 }
-                else if(position[rowOfKnightInQuestion - 1][colOfKnightInQuestion - 1].substring(0, 1).equals("B")) {
+                else if(position[rowOfKnightInQuestion - 2][colOfKnightInQuestion - 1].substring(0, 1).equals("B")) {
                     listOfValidMoves.add((rowOfKnightInQuestion - 2) + ", " + (colOfKnightInQuestion - 1));
                 }
             }

@@ -8,18 +8,18 @@ import gui.Board;
 
 class Boot {
 
-// --Commented out by Inspection START (14/05/2015 03:38):
-//    String[][] testBoard = {
-//            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-//            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-//            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-//            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-//            {"ES", "ES", "ES", "WN", "ES", "ES", "ES", "ES"},
-//            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-//            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-//            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
-//    };
-// --Commented out by Inspection STOP (14/05/2015 03:38)
+    // --Commented out by Inspection START (14/05/2015 03:38):
+    String[][] testBoard = {
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+            {"ES", "ES", "BP", "ES", "BP", "ES", "ES", "ES"},
+            {"ES", "BP", "ES", "ES", "ES", "BP", "ES", "ES"},
+            {"ES", "ES", "ES", "WN", "ES", "ES", "ES", "ES"},
+            {"ES", "BP", "ES", "ES", "ES", "BP", "ES", "ES"},
+            {"ES", "ES", "BP", "ES", "BP", "ES", "ES", "ES"},
+            {"ES", "ES", "ES", "ES", "ES", "ES", "ES", "ES"},
+    };
+
 
     private Boot() {
         Log.deletePreviousLog();
@@ -35,7 +35,7 @@ class Boot {
                 {"WP", "WP", "WP", "WP", "WP", "WP", "WP", "WP"},
                 {"WR", "WN", "WB", "WQ", "WK", "WB", "WN", "WR"}
         };
-        guiBoard.newGame(boardView);
+        guiBoard.newGame(testBoard);
         guiBoard.makeButtonsInteractive();
     }
 
