@@ -11,7 +11,7 @@ public class Log {
 
     public static void deletePreviousLog() {
 
-        File file = new File("res/log.txt");
+        File file = new File("log.txt");
 
         if (file.delete()) {
             System.out.println("file deleted.");
