@@ -373,10 +373,10 @@ public class Board {
     public void checkForPromotion(String[][] position) {
         for (int i = 0; i < position.length; i++) {
             if (position[0][i].equals("WP")) {
-                squares[0][i].setIcon(new ImageIcon(iconSetter("WQ")));
+                squares[0][i].setIcon(new ImageIcon(iconSetter("WQ"), "WQ"));
             }
             else if (position[7][i].equals("BP")) {
-                squares[7][i].setIcon(new ImageIcon(iconSetter("BQ")));
+                squares[7][i].setIcon(new ImageIcon(iconSetter("BQ"), "BQ"));
             }
         }
 
