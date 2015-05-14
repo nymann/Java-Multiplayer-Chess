@@ -308,37 +308,34 @@ public class Board {
 
     private void highlightValidMoveSquares(String[] validMoveList) {
 
-        for (int i = 0; i < validMoveList.length; i ++) {
-            if ((validMoveList[i].substring(0, 1).equals("W") || validMoveList[i].substring(0, 1).equals("B"))) {
-                if (validMoveList[i].substring(0, 1).equals("W")) {
-                    if (validMoveList[i].equals("WKC")) {
+        for (String aValidMoveList : validMoveList) {
+            if ((aValidMoveList.substring(0, 1).equals("W") || aValidMoveList.substring(0, 1).equals("B"))) {
+                if (aValidMoveList.substring(0, 1).equals("W")) {
+                    if (aValidMoveList.equals("WKC")) {
                         //System.out.println("White King side castle.");
                         squares[7][6].setBackground(castleColorDS);
                     }
 
-                    if (validMoveList[i].equals("WQC")) {
+                    if (aValidMoveList.equals("WQC")) {
                         //System.out.println("White Queen side castle.");
                         squares[7][2].setBackground(castleColorDS);
                     }
-                }
-
-                else {
-                    if (validMoveList[i].equals("BKC")) {
+                } else {
+                    if (aValidMoveList.equals("BKC")) {
                         //System.out.println("White King side castle.");
                         squares[0][6].setBackground(castleColorLS);
                     }
 
-                    if (validMoveList[i].equals("BQC")) {
+                    if (aValidMoveList.equals("BQC")) {
                         //System.out.println("White Queen side castle.");
                         squares[0][2].setBackground(castleColorLS);
                     }
                 }
 
 
-            }
-            else {
-                int row = Integer.valueOf(validMoveList[i].substring(0, 1));
-                int col = Integer.valueOf(validMoveList[i].substring(3));
+            } else {
+                int row = Integer.valueOf(aValidMoveList.substring(0, 1));
+                int col = Integer.valueOf(aValidMoveList.substring(3));
 
                 if ((squares[row][col].getBackground().equals(Color.white)) || (squares[row][col].getBackground().equals(darkSquare))) {
                     if (squares[row][col].getBackground().equals(Color.white)) {
