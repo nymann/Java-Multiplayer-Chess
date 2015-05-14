@@ -14,6 +14,7 @@ public class KingRules {
     public static String[] kingRule(String[][] position, int rowOfKingInQuestion, int colOfKingInQuestion, boolean colorOfKingIsWhite) {
         // CURRENTLY MISSING castling both directions, is in check, and is checkmated.
         boolean kingsideCastle = true;
+        boolean queensideCastle = true;
         List<String> listOfValidMoves = new ArrayList<>();
 
         if (colorOfKingIsWhite) {
@@ -23,7 +24,6 @@ public class KingRules {
             if ((rowOfKingInQuestion == 7) && (colOfKingInQuestion == 4)) {
                 // The king is on it's start square, now checking if the two squares to the right of the king is empty and the third is a rook.
                 if ((position[rowOfKingInQuestion][colOfKingInQuestion + 1].equals("ES")) && (position[rowOfKingInQuestion][colOfKingInQuestion + 2].equals("ES")) && (position[rowOfKingInQuestion][colOfKingInQuestion + 3].equals("WR"))) {
-                    System.out.println("The two squares to the right of the white king is empty, and the Rook is on the third square to the right.");
                     try {
                         // Some of the following is borrowed by Ramin as seen in: http://stackoverflow.com/questions/13405822/using-bufferedreader-readline-in-a-while-loop-properly
                         InputStream fis = new FileInputStream("log.txt");
@@ -43,8 +43,28 @@ public class KingRules {
                     if (kingsideCastle) {
                         System.out.println("King side castling possible.");
                     }
+                }
 
+                if ((position[rowOfKingInQuestion][colOfKingInQuestion - 1].equals("ES")) && (position[rowOfKingInQuestion][colOfKingInQuestion - 2].equals("ES")) && (position[rowOfKingInQuestion][colOfKingInQuestion - 3].equals("ES")) && (position[rowOfKingInQuestion][colOfKingInQuestion - 4].equals("WR"))) {
+                    try {
+                        // Some of the following is borrowed by Ramin as seen in: http://stackoverflow.com/questions/13405822/using-bufferedreader-readline-in-a-while-loop-properly
+                        InputStream fis = new FileInputStream("log.txt");
+                        BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 
+                        for (String line = br.readLine(); line != null; line = br.readLine()) {
+                            if (line.contains("e1") || line.contains("h1")) {
+                                queensideCastle = false;
+                                break;
+                            }
+                        }
+                        br.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    if (queensideCastle) {
+                        System.out.println("Queen side castling possible.");
+                    }
                 }
 
             }
