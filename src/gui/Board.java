@@ -17,6 +17,9 @@ public class Board {
     private final Color selectedPiece = new Color(0xcccccc);
     private final Color castleColorDS = new Color(0xcc9932);
     private final Color castleColorLS = new Color(0xfbc72c);
+    private final Color enPassantColorLS = new Color(0xffcc35);
+    private final Color getEnPassantColorDS = new Color(0xc99836);
+
     private int turnDecision = 0;
 
 
@@ -279,6 +282,10 @@ public class Board {
                                 letsCastle(l, k);
                                 turnDecision++;
                             }
+                            else if ((squares[l][k].getBackground().equals(getEnPassantColorDS)) || (squares[l][k].getBackground().equals(enPassantColorLS))) {
+                                letsEnPassant(l, k);
+                                turnDecision++;
+                            }
                             break;
 
                         default:
@@ -333,7 +340,24 @@ public class Board {
                 }
 
 
-            } else {
+            }
+
+            else if (aValidMoveList.substring(0, 1).equals("E")) {
+                System.out.println(aValidMoveList);
+
+                int row = Integer.valueOf(aValidMoveList.substring(1, 2));
+                int col = Integer.valueOf(aValidMoveList.substring(4));
+
+                if (squares[row][col].getBackground().equals(Color.white)) {
+                    squares[row][col].setBackground(enPassantColorLS);
+                }
+                else {
+                    squares[row][col].setBackground(getEnPassantColorDS);
+                }
+
+            }
+
+            else {
                 int row = Integer.valueOf(aValidMoveList.substring(0, 1));
                 int col = Integer.valueOf(aValidMoveList.substring(3));
 
@@ -408,6 +432,7 @@ public class Board {
                 squares[0][3].setIcon(iconSetter("BR"));
                 squares[0][2].setIcon(iconSetter("BK"));
                 squares[0][4].setIcon(iconSetter("ES"));
+                Log.castleToLogFile("0-0-0");
             }
 
             else {
@@ -416,6 +441,7 @@ public class Board {
                 squares[0][4].setIcon(iconSetter("ES"));
                 squares[0][5].setIcon(iconSetter("BR"));
                 squares[0][6].setIcon(iconSetter("BK"));
+                Log.castleToLogFile("0-0");
             }
         }
 
@@ -427,6 +453,7 @@ public class Board {
                 squares[7][3].setIcon(iconSetter("WR"));
                 squares[7][2].setIcon(iconSetter("WK"));
                 squares[7][4].setIcon(iconSetter("ES"));
+                Log.castleToLogFile("0-0-0");
             }
 
             else {
@@ -435,9 +462,63 @@ public class Board {
                 squares[7][4].setIcon(iconSetter("ES"));
                 squares[7][5].setIcon(iconSetter("WR"));
                 squares[7][6].setIcon(iconSetter("WK"));
+                Log.castleToLogFile("0-0");
+            }
+        }
+        setSquareColorsToDefault();
+    }
+
+    private void letsEnPassant(int row, int col) {
+        String[][] an = {
+                {"a8", "b8", "c8", "d8", "e8", "f8", "g8", "h8"},
+                {"a7", "b7", "c7", "d7", "e7", "f7", "g7", "h7"},
+                {"a6", "b6", "c6", "d6", "e6", "f6", "g6", "h6"},
+                {"a5", "b5", "c5", "d5", "e5", "f5", "g5", "h5"},
+                {"a4", "b4", "c4", "d4", "e4", "f4", "g4", "h4"},
+                {"a3", "b3", "c3", "d3", "e3", "f3", "g3", "h3"},
+                {"a2", "b2", "c2", "d2", "e2", "f2", "g2", "h2"},
+                {"a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"}
+        };
+
+        if (row == 2) {
+            // It's white who is trying to en passant.
+            squares[row][col].setIcon(iconSetter("WP"));
+            squares[findRowOfSelectedPiece()][findColOfSelectedPiece()].setIcon(iconSetter("ES"));
+            squares[findRowOfSelectedPiece()][col].setIcon(iconSetter("ES"));
+        }
+        else {
+            // It's black who is trying to en passant.
+            squares[row][col].setIcon(iconSetter("BP"));
+            squares[findRowOfSelectedPiece()][findColOfSelectedPiece()].setIcon(iconSetter("ES"));
+            squares[findRowOfSelectedPiece()][col].setIcon(iconSetter("ES"));
+        }
+
+        String move = an[findRowOfSelectedPiece()][findColOfSelectedPiece()] + "x" + an[row][col];
+        Log.enPassantToLogFile(move);
+        setSquareColorsToDefault();
+    }
+
+    private int findColOfSelectedPiece() {
+        for (JButton[] square : squares) {
+            for (int j = 0; j < squares.length; j++) {
+                if (square[j].getBackground().equals(selectedPiece)) {
+                    return j;
+                }
             }
         }
 
-        setSquareColorsToDefault();
+        return -1;
+    }
+
+    private int findRowOfSelectedPiece() {
+        for (int i = 0; i < squares.length; i++) {
+            for (int j = 0; j < squares.length; j++) {
+                if (squares[i][j].getBackground().equals(selectedPiece)) {
+                    return i;
+                }
+            }
+        }
+
+        return -1;
     }
 }

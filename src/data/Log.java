@@ -14,11 +14,47 @@ public class Log {
         File file = new File("log.txt");
 
         if (file.delete()) {
-            System.out.println("file deleted.");
-        } else {
-            System.out.println("didn't delete!");
+            System.out.println();
         }
 
+
+    }
+
+    public static void enPassantToLogFile(String move) {
+        File file = new File("log.txt");
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            FileWriter fw = new FileWriter("log.txt", true);
+            fw.write(move + "\r\n");
+            fw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void castleToLogFile(String move) {
+        File file = new File("log.txt");
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            FileWriter fw = new FileWriter("log.txt", true);
+            fw.write(move + "\r\n");
+            fw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void addToLogFile(int moveFromRow, int moveFromCol, int moveToRow, int moveToCol) {
