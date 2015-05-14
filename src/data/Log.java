@@ -22,7 +22,7 @@ public class Log {
     }
 
     public static void addToLogFile(int moveFromRow, int moveFromCol, int moveToRow, int moveToCol) {
-        File file = new File("res/log.txt");
+        File file = new File("log.txt");
         try {
             file.createNewFile();
         } catch (IOException e) {
@@ -41,7 +41,7 @@ public class Log {
         };
 
         try {
-            FileWriter fw = new FileWriter("res/log.txt", true);
+            FileWriter fw = new FileWriter("log.txt", true);
             fw.write(algebraicNotation[moveFromRow][moveFromCol] + algebraicNotation[moveToRow][moveToCol] + "\r\n");
             fw.close();
 

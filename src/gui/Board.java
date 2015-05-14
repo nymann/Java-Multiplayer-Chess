@@ -71,14 +71,8 @@ public class Board {
         jFrame.setVisible(true);
     }
 
-    public BufferedImage iconSetter(String pieceName) {
-        try {
-            return ImageIO.read(new File("res/img/" + pieceName + ".png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+    public ImageIcon iconSetter(String pieceName) {
+        return new ImageIcon(getClass().getResource("res/img/" + pieceName + ".png"), pieceName);
     }
 
     public String whichPieceIsOccupyingTheSquare(int row, int col) {
@@ -90,55 +84,55 @@ public class Board {
             for (int j = 0; j < squares.length; j++) {
                 switch (board[i][j]) {
                     case "ES":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("ES"), "ES"));
+                        squares[i][j].setIcon(iconSetter("ES"));
                         break;
 
                     case "WP":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("WP"), "WP"));
+                        squares[i][j].setIcon(iconSetter("WP"));
                         break;
 
                     case "WR":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("WR"), "WR"));
+                        squares[i][j].setIcon(iconSetter("WR"));
                         break;
 
                     case "WN":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("WN"), "WN"));
+                        squares[i][j].setIcon(iconSetter("WN"));
                         break;
 
                     case "WB":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("WB"), "WB"));
+                        squares[i][j].setIcon(iconSetter("WB"));
                         break;
 
                     case "WQ":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("WQ"), "WQ"));
+                        squares[i][j].setIcon(iconSetter("WQ"));
                         break;
 
                     case "WK":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("WK"), "WK"));
+                        squares[i][j].setIcon(iconSetter("WK"));
                         break;
 
                     case "BP":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("BP"), "BP"));
+                        squares[i][j].setIcon(iconSetter("BP"));
                         break;
 
                     case "BR":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("BR"), "BR"));
+                        squares[i][j].setIcon(iconSetter("BR"));
                         break;
 
                     case "BN":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("BN"), "BN"));
+                        squares[i][j].setIcon(iconSetter("BN"));
                         break;
 
                     case "BB":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("BB"), "BB"));
+                        squares[i][j].setIcon(iconSetter("BB"));
                         break;
 
                     case "BQ":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("BQ"), "BQ"));
+                        squares[i][j].setIcon(iconSetter("BQ"));
                         break;
 
                     case "BK":
-                        squares[i][j].setIcon(new ImageIcon(iconSetter("BK"), "BK"));
+                        squares[i][j].setIcon(iconSetter("BK"));
                         break;
                 }
             }
@@ -157,129 +151,129 @@ public class Board {
                     }
                     switch (whichPieceIsOccupyingTheSquare(l, k)) {
                         case "WP":
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 0) {
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(PawnRules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 0) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(PawnRules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
 
-                                }
+                            }
                             break;
 
                         case "WR":
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 0) {
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(RookRules.rookRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 0) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(RookRules.rookRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "WN":
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 0) {
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(KnightRules.knightRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 0) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(KnightRules.knightRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "WB":
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 0) {
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(BishopRules.bishopRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 0) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(BishopRules.bishopRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "WQ":
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 0) {
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(BishopRules.bishopRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                    highlightValidMoveSquares(RookRules.rookRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 0) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(BishopRules.bishopRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                highlightValidMoveSquares(RookRules.rookRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "WK":
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 0) {
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(KingRules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 0) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(KingRules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "BP":
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 1){
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(PawnRules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 1) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(PawnRules.pawnRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "BR":
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 1) {
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(RookRules.rookRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 1) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(RookRules.rookRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "BN":
 
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 1) {
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(KnightRules.knightRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 1) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(KnightRules.knightRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "BB":
 
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 1) {
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(BishopRules.bishopRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 1) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(BishopRules.bishopRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "BQ":
 
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 1) {
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(BishopRules.bishopRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                    highlightValidMoveSquares(RookRules.rookRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 1) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(BishopRules.bishopRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                                highlightValidMoveSquares(RookRules.rookRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "BK":
-                                if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
-                                    movePiece(l, k);
-                                    turnDecision++;
-                                } else if ((turnDecision % 2) == 1){
-                                    squares[l][k].setBackground(selectedPiece);
-                                    highlightValidMoveSquares(KingRules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
-                                }
+                            if ((squares[l][k].getBackground().equals(highlightDarkSquare)) || (squares[l][k].getBackground().equals(highlightLightSquare))) {
+                                movePiece(l, k);
+                                turnDecision++;
+                            } else if ((turnDecision % 2) == 1) {
+                                squares[l][k].setBackground(selectedPiece);
+                                highlightValidMoveSquares(KingRules.kingRule(readDescriptionOfEntireBoard(), l, k, isPiececolorWhite(l, k)));
+                            }
                             break;
 
                         case "ES":
@@ -345,14 +339,14 @@ public class Board {
                 if (squares[i][j].getBackground().equals(selectedPiece)) {
                     piecename = whichPieceIsOccupyingTheSquare(i, j);
                     Log.addToLogFile(i, j, toRow, toCol);
-                    squares[i][j].setIcon(new ImageIcon(iconSetter("ES"), "ES"));
+                    squares[i][j].setIcon(iconSetter("ES"));
 
                     break LookingForSelectedPiece;
                 }
             }
         }
 
-        squares[toRow][toCol].setIcon(new ImageIcon(iconSetter(piecename), piecename));
+        squares[toRow][toCol].setIcon(iconSetter(piecename));
         setSquareColorsToDefault();
         checkForPromotion(readDescriptionOfEntireBoard());
 
@@ -373,10 +367,9 @@ public class Board {
     public void checkForPromotion(String[][] position) {
         for (int i = 0; i < position.length; i++) {
             if (position[0][i].equals("WP")) {
-                squares[0][i].setIcon(new ImageIcon(iconSetter("WQ"), "WQ"));
-            }
-            else if (position[7][i].equals("BP")) {
-                squares[7][i].setIcon(new ImageIcon(iconSetter("BQ"), "BQ"));
+                squares[0][i].setIcon(iconSetter("WQ"));
+            } else if (position[7][i].equals("BP")) {
+                squares[7][i].setIcon(iconSetter("BQ"));
             }
         }
 
